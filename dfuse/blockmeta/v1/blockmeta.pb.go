@@ -25,6 +25,131 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type ForkResolveRequest struct {
+	Block                *BlockRef `protobuf:"bytes,1,opt,name=block,proto3" json:"block,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *ForkResolveRequest) Reset()         { *m = ForkResolveRequest{} }
+func (m *ForkResolveRequest) String() string { return proto.CompactTextString(m) }
+func (*ForkResolveRequest) ProtoMessage()    {}
+func (*ForkResolveRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{0}
+}
+
+func (m *ForkResolveRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ForkResolveRequest.Unmarshal(m, b)
+}
+func (m *ForkResolveRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ForkResolveRequest.Marshal(b, m, deterministic)
+}
+func (m *ForkResolveRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ForkResolveRequest.Merge(m, src)
+}
+func (m *ForkResolveRequest) XXX_Size() int {
+	return xxx_messageInfo_ForkResolveRequest.Size(m)
+}
+func (m *ForkResolveRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ForkResolveRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ForkResolveRequest proto.InternalMessageInfo
+
+func (m *ForkResolveRequest) GetBlock() *BlockRef {
+	if m != nil {
+		return m.Block
+	}
+	return nil
+}
+
+type ForkResolveResponse struct {
+	ForkedBlockRefs      []*BlockRef `protobuf:"bytes,1,rep,name=forkedBlockRefs,proto3" json:"forkedBlockRefs,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ForkResolveResponse) Reset()         { *m = ForkResolveResponse{} }
+func (m *ForkResolveResponse) String() string { return proto.CompactTextString(m) }
+func (*ForkResolveResponse) ProtoMessage()    {}
+func (*ForkResolveResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{1}
+}
+
+func (m *ForkResolveResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ForkResolveResponse.Unmarshal(m, b)
+}
+func (m *ForkResolveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ForkResolveResponse.Marshal(b, m, deterministic)
+}
+func (m *ForkResolveResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ForkResolveResponse.Merge(m, src)
+}
+func (m *ForkResolveResponse) XXX_Size() int {
+	return xxx_messageInfo_ForkResolveResponse.Size(m)
+}
+func (m *ForkResolveResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ForkResolveResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ForkResolveResponse proto.InternalMessageInfo
+
+func (m *ForkResolveResponse) GetForkedBlockRefs() []*BlockRef {
+	if m != nil {
+		return m.ForkedBlockRefs
+	}
+	return nil
+}
+
+type BlockRef struct {
+	BlockNum             uint64   `protobuf:"varint,1,opt,name=blockNum,proto3" json:"blockNum,omitempty"`
+	BlockID              string   `protobuf:"bytes,2,opt,name=blockID,proto3" json:"blockID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BlockRef) Reset()         { *m = BlockRef{} }
+func (m *BlockRef) String() string { return proto.CompactTextString(m) }
+func (*BlockRef) ProtoMessage()    {}
+func (*BlockRef) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{2}
+}
+
+func (m *BlockRef) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BlockRef.Unmarshal(m, b)
+}
+func (m *BlockRef) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BlockRef.Marshal(b, m, deterministic)
+}
+func (m *BlockRef) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BlockRef.Merge(m, src)
+}
+func (m *BlockRef) XXX_Size() int {
+	return xxx_messageInfo_BlockRef.Size(m)
+}
+func (m *BlockRef) XXX_DiscardUnknown() {
+	xxx_messageInfo_BlockRef.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BlockRef proto.InternalMessageInfo
+
+func (m *BlockRef) GetBlockNum() uint64 {
+	if m != nil {
+		return m.BlockNum
+	}
+	return 0
+}
+
+func (m *BlockRef) GetBlockID() string {
+	if m != nil {
+		return m.BlockID
+	}
+	return ""
+}
+
 type LIBRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -35,7 +160,7 @@ func (m *LIBRequest) Reset()         { *m = LIBRequest{} }
 func (m *LIBRequest) String() string { return proto.CompactTextString(m) }
 func (*LIBRequest) ProtoMessage()    {}
 func (*LIBRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{0}
+	return fileDescriptor_05a582e363a28944, []int{3}
 }
 
 func (m *LIBRequest) XXX_Unmarshal(b []byte) error {
@@ -67,7 +192,7 @@ func (m *NumToIDRequest) Reset()         { *m = NumToIDRequest{} }
 func (m *NumToIDRequest) String() string { return proto.CompactTextString(m) }
 func (*NumToIDRequest) ProtoMessage()    {}
 func (*NumToIDRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{1}
+	return fileDescriptor_05a582e363a28944, []int{4}
 }
 
 func (m *NumToIDRequest) XXX_Unmarshal(b []byte) error {
@@ -106,7 +231,7 @@ func (m *TimeRequest) Reset()         { *m = TimeRequest{} }
 func (m *TimeRequest) String() string { return proto.CompactTextString(m) }
 func (*TimeRequest) ProtoMessage()    {}
 func (*TimeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{2}
+	return fileDescriptor_05a582e363a28944, []int{5}
 }
 
 func (m *TimeRequest) XXX_Unmarshal(b []byte) error {
@@ -146,7 +271,7 @@ func (m *RelativeTimeRequest) Reset()         { *m = RelativeTimeRequest{} }
 func (m *RelativeTimeRequest) String() string { return proto.CompactTextString(m) }
 func (*RelativeTimeRequest) ProtoMessage()    {}
 func (*RelativeTimeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{3}
+	return fileDescriptor_05a582e363a28944, []int{6}
 }
 
 func (m *RelativeTimeRequest) XXX_Unmarshal(b []byte) error {
@@ -195,7 +320,7 @@ func (m *BlockResponse) Reset()         { *m = BlockResponse{} }
 func (m *BlockResponse) String() string { return proto.CompactTextString(m) }
 func (*BlockResponse) ProtoMessage()    {}
 func (*BlockResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{4}
+	return fileDescriptor_05a582e363a28944, []int{7}
 }
 
 func (m *BlockResponse) XXX_Unmarshal(b []byte) error {
@@ -237,92 +362,6 @@ func (m *BlockResponse) GetIrreversible() bool {
 	return false
 }
 
-type InLongestChainRequest struct {
-	BlockID              string   `protobuf:"bytes,1,opt,name=blockID,proto3" json:"blockID,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *InLongestChainRequest) Reset()         { *m = InLongestChainRequest{} }
-func (m *InLongestChainRequest) String() string { return proto.CompactTextString(m) }
-func (*InLongestChainRequest) ProtoMessage()    {}
-func (*InLongestChainRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{5}
-}
-
-func (m *InLongestChainRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InLongestChainRequest.Unmarshal(m, b)
-}
-func (m *InLongestChainRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InLongestChainRequest.Marshal(b, m, deterministic)
-}
-func (m *InLongestChainRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InLongestChainRequest.Merge(m, src)
-}
-func (m *InLongestChainRequest) XXX_Size() int {
-	return xxx_messageInfo_InLongestChainRequest.Size(m)
-}
-func (m *InLongestChainRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_InLongestChainRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_InLongestChainRequest proto.InternalMessageInfo
-
-func (m *InLongestChainRequest) GetBlockID() string {
-	if m != nil {
-		return m.BlockID
-	}
-	return ""
-}
-
-type InLongestChainResponse struct {
-	InLongestChain       bool     `protobuf:"varint,1,opt,name=inLongestChain,proto3" json:"inLongestChain,omitempty"`
-	Irreversible         bool     `protobuf:"varint,2,opt,name=irreversible,proto3" json:"irreversible,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *InLongestChainResponse) Reset()         { *m = InLongestChainResponse{} }
-func (m *InLongestChainResponse) String() string { return proto.CompactTextString(m) }
-func (*InLongestChainResponse) ProtoMessage()    {}
-func (*InLongestChainResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{6}
-}
-
-func (m *InLongestChainResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_InLongestChainResponse.Unmarshal(m, b)
-}
-func (m *InLongestChainResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_InLongestChainResponse.Marshal(b, m, deterministic)
-}
-func (m *InLongestChainResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InLongestChainResponse.Merge(m, src)
-}
-func (m *InLongestChainResponse) XXX_Size() int {
-	return xxx_messageInfo_InLongestChainResponse.Size(m)
-}
-func (m *InLongestChainResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_InLongestChainResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_InLongestChainResponse proto.InternalMessageInfo
-
-func (m *InLongestChainResponse) GetInLongestChain() bool {
-	if m != nil {
-		return m.InLongestChain
-	}
-	return false
-}
-
-func (m *InLongestChainResponse) GetIrreversible() bool {
-	if m != nil {
-		return m.Irreversible
-	}
-	return false
-}
-
 type BlockIDResponse struct {
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	BlockTimeMilli       int64    `protobuf:"varint,2,opt,name=blockTimeMilli,proto3" json:"blockTimeMilli,omitempty"`
@@ -336,7 +375,7 @@ func (m *BlockIDResponse) Reset()         { *m = BlockIDResponse{} }
 func (m *BlockIDResponse) String() string { return proto.CompactTextString(m) }
 func (*BlockIDResponse) ProtoMessage()    {}
 func (*BlockIDResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_05a582e363a28944, []int{7}
+	return fileDescriptor_05a582e363a28944, []int{8}
 }
 
 func (m *BlockIDResponse) XXX_Unmarshal(b []byte) error {
@@ -378,52 +417,247 @@ func (m *BlockIDResponse) GetIrreversible() bool {
 	return false
 }
 
+type InLongestChainRequest struct {
+	BlockID              string   `protobuf:"bytes,1,opt,name=blockID,proto3" json:"blockID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InLongestChainRequest) Reset()         { *m = InLongestChainRequest{} }
+func (m *InLongestChainRequest) String() string { return proto.CompactTextString(m) }
+func (*InLongestChainRequest) ProtoMessage()    {}
+func (*InLongestChainRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{9}
+}
+
+func (m *InLongestChainRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InLongestChainRequest.Unmarshal(m, b)
+}
+func (m *InLongestChainRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InLongestChainRequest.Marshal(b, m, deterministic)
+}
+func (m *InLongestChainRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InLongestChainRequest.Merge(m, src)
+}
+func (m *InLongestChainRequest) XXX_Size() int {
+	return xxx_messageInfo_InLongestChainRequest.Size(m)
+}
+func (m *InLongestChainRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_InLongestChainRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InLongestChainRequest proto.InternalMessageInfo
+
+func (m *InLongestChainRequest) GetBlockID() string {
+	if m != nil {
+		return m.BlockID
+	}
+	return ""
+}
+
+type InLongestChainResponse struct {
+	InLongestChain       bool     `protobuf:"varint,1,opt,name=inLongestChain,proto3" json:"inLongestChain,omitempty"`
+	Irreversible         bool     `protobuf:"varint,2,opt,name=irreversible,proto3" json:"irreversible,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InLongestChainResponse) Reset()         { *m = InLongestChainResponse{} }
+func (m *InLongestChainResponse) String() string { return proto.CompactTextString(m) }
+func (*InLongestChainResponse) ProtoMessage()    {}
+func (*InLongestChainResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{10}
+}
+
+func (m *InLongestChainResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InLongestChainResponse.Unmarshal(m, b)
+}
+func (m *InLongestChainResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InLongestChainResponse.Marshal(b, m, deterministic)
+}
+func (m *InLongestChainResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InLongestChainResponse.Merge(m, src)
+}
+func (m *InLongestChainResponse) XXX_Size() int {
+	return xxx_messageInfo_InLongestChainResponse.Size(m)
+}
+func (m *InLongestChainResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_InLongestChainResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InLongestChainResponse proto.InternalMessageInfo
+
+func (m *InLongestChainResponse) GetInLongestChain() bool {
+	if m != nil {
+		return m.InLongestChain
+	}
+	return false
+}
+
+func (m *InLongestChainResponse) GetIrreversible() bool {
+	if m != nil {
+		return m.Irreversible
+	}
+	return false
+}
+
+type GetBlockInLongestChainRequest struct {
+	BlockNum             uint64   `protobuf:"varint,1,opt,name=block_num,json=blockNum,proto3" json:"block_num,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetBlockInLongestChainRequest) Reset()         { *m = GetBlockInLongestChainRequest{} }
+func (m *GetBlockInLongestChainRequest) String() string { return proto.CompactTextString(m) }
+func (*GetBlockInLongestChainRequest) ProtoMessage()    {}
+func (*GetBlockInLongestChainRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{11}
+}
+
+func (m *GetBlockInLongestChainRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBlockInLongestChainRequest.Unmarshal(m, b)
+}
+func (m *GetBlockInLongestChainRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBlockInLongestChainRequest.Marshal(b, m, deterministic)
+}
+func (m *GetBlockInLongestChainRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBlockInLongestChainRequest.Merge(m, src)
+}
+func (m *GetBlockInLongestChainRequest) XXX_Size() int {
+	return xxx_messageInfo_GetBlockInLongestChainRequest.Size(m)
+}
+func (m *GetBlockInLongestChainRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBlockInLongestChainRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBlockInLongestChainRequest proto.InternalMessageInfo
+
+func (m *GetBlockInLongestChainRequest) GetBlockNum() uint64 {
+	if m != nil {
+		return m.BlockNum
+	}
+	return 0
+}
+
+type GetBlockInLongestChainResponse struct {
+	BlockId              string   `protobuf:"bytes,1,opt,name=block_id,json=blockId,proto3" json:"block_id,omitempty"`
+	BlockNum             uint64   `protobuf:"varint,2,opt,name=block_num,json=blockNum,proto3" json:"block_num,omitempty"`
+	Irreversible         bool     `protobuf:"varint,3,opt,name=irreversible,proto3" json:"irreversible,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetBlockInLongestChainResponse) Reset()         { *m = GetBlockInLongestChainResponse{} }
+func (m *GetBlockInLongestChainResponse) String() string { return proto.CompactTextString(m) }
+func (*GetBlockInLongestChainResponse) ProtoMessage()    {}
+func (*GetBlockInLongestChainResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_05a582e363a28944, []int{12}
+}
+
+func (m *GetBlockInLongestChainResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBlockInLongestChainResponse.Unmarshal(m, b)
+}
+func (m *GetBlockInLongestChainResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBlockInLongestChainResponse.Marshal(b, m, deterministic)
+}
+func (m *GetBlockInLongestChainResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBlockInLongestChainResponse.Merge(m, src)
+}
+func (m *GetBlockInLongestChainResponse) XXX_Size() int {
+	return xxx_messageInfo_GetBlockInLongestChainResponse.Size(m)
+}
+func (m *GetBlockInLongestChainResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBlockInLongestChainResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetBlockInLongestChainResponse proto.InternalMessageInfo
+
+func (m *GetBlockInLongestChainResponse) GetBlockId() string {
+	if m != nil {
+		return m.BlockId
+	}
+	return ""
+}
+
+func (m *GetBlockInLongestChainResponse) GetBlockNum() uint64 {
+	if m != nil {
+		return m.BlockNum
+	}
+	return 0
+}
+
+func (m *GetBlockInLongestChainResponse) GetIrreversible() bool {
+	if m != nil {
+		return m.Irreversible
+	}
+	return false
+}
+
 func init() {
+	proto.RegisterType((*ForkResolveRequest)(nil), "dfuse.blockmeta.v1.ForkResolveRequest")
+	proto.RegisterType((*ForkResolveResponse)(nil), "dfuse.blockmeta.v1.ForkResolveResponse")
+	proto.RegisterType((*BlockRef)(nil), "dfuse.blockmeta.v1.BlockRef")
 	proto.RegisterType((*LIBRequest)(nil), "dfuse.blockmeta.v1.LIBRequest")
 	proto.RegisterType((*NumToIDRequest)(nil), "dfuse.blockmeta.v1.NumToIDRequest")
 	proto.RegisterType((*TimeRequest)(nil), "dfuse.blockmeta.v1.TimeRequest")
 	proto.RegisterType((*RelativeTimeRequest)(nil), "dfuse.blockmeta.v1.RelativeTimeRequest")
 	proto.RegisterType((*BlockResponse)(nil), "dfuse.blockmeta.v1.BlockResponse")
+	proto.RegisterType((*BlockIDResponse)(nil), "dfuse.blockmeta.v1.BlockIDResponse")
 	proto.RegisterType((*InLongestChainRequest)(nil), "dfuse.blockmeta.v1.InLongestChainRequest")
 	proto.RegisterType((*InLongestChainResponse)(nil), "dfuse.blockmeta.v1.InLongestChainResponse")
-	proto.RegisterType((*BlockIDResponse)(nil), "dfuse.blockmeta.v1.BlockIDResponse")
+	proto.RegisterType((*GetBlockInLongestChainRequest)(nil), "dfuse.blockmeta.v1.GetBlockInLongestChainRequest")
+	proto.RegisterType((*GetBlockInLongestChainResponse)(nil), "dfuse.blockmeta.v1.GetBlockInLongestChainResponse")
 }
 
 func init() { proto.RegisterFile("dfuse/blockmeta/v1/blockmeta.proto", fileDescriptor_05a582e363a28944) }
 
 var fileDescriptor_05a582e363a28944 = []byte{
-	// 487 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x54, 0x4d, 0x6f, 0xd3, 0x40,
-	0x10, 0x55, 0xdc, 0x8f, 0xa4, 0xd3, 0x12, 0xa4, 0x45, 0xa0, 0xc8, 0x42, 0xb4, 0x2c, 0x52, 0x29,
-	0xa8, 0x5a, 0x2b, 0xe1, 0xcc, 0xa1, 0x26, 0x07, 0x2c, 0x85, 0x1e, 0x96, 0x9c, 0xb8, 0xf9, 0x63,
-	0xe2, 0xae, 0xb0, 0xbd, 0xc1, 0xbb, 0xf6, 0x8d, 0x5f, 0xc4, 0x8f, 0x04, 0x79, 0x63, 0x37, 0x75,
-	0xe2, 0x4a, 0x96, 0xe8, 0x71, 0xc7, 0x6f, 0xde, 0x7b, 0x3b, 0xfb, 0xc6, 0x40, 0xa3, 0x55, 0xa1,
-	0xd0, 0x09, 0x12, 0x19, 0xfe, 0x4c, 0x51, 0xfb, 0x4e, 0x39, 0xdd, 0x1e, 0xd8, 0x3a, 0x97, 0x5a,
-	0x12, 0x62, 0x30, 0x6c, 0x5b, 0x2e, 0xa7, 0xf6, 0x79, 0x2c, 0x65, 0x9c, 0xa0, 0x63, 0x10, 0x41,
-	0xb1, 0x72, 0xb4, 0x48, 0x51, 0x69, 0x3f, 0x5d, 0x6f, 0x9a, 0xe8, 0x19, 0xc0, 0xc2, 0x73, 0x39,
-	0xfe, 0x2a, 0x50, 0x69, 0x7a, 0x0d, 0xe3, 0xdb, 0x22, 0x5d, 0x4a, 0x6f, 0x5e, 0x57, 0x88, 0x0d,
-	0x23, 0x43, 0x78, 0x5b, 0xa4, 0x93, 0xc1, 0xc5, 0xe0, 0xea, 0x90, 0xdf, 0x9f, 0xe9, 0x67, 0x38,
-	0x5d, 0x8a, 0x14, 0x1b, 0x28, 0x83, 0xc3, 0x8a, 0xdd, 0xc0, 0x4e, 0x67, 0x36, 0xdb, 0x48, 0xb3,
-	0x46, 0x9a, 0x2d, 0x1b, 0x69, 0x6e, 0x70, 0x34, 0x84, 0x17, 0x1c, 0x13, 0x5f, 0x8b, 0x12, 0xff,
-	0x83, 0x86, 0xbc, 0x86, 0x13, 0x91, 0x85, 0x49, 0xa1, 0x44, 0x89, 0x13, 0xeb, 0x62, 0x70, 0x35,
-	0xe2, 0xdb, 0x02, 0x55, 0xf0, 0xcc, 0xad, 0xfc, 0x72, 0x54, 0x6b, 0x99, 0x29, 0x24, 0x63, 0xb0,
-	0x44, 0x64, 0xc8, 0x4f, 0xb8, 0x25, 0xa2, 0x7b, 0x39, 0xab, 0xa7, 0x1c, 0x85, 0x33, 0x91, 0xe7,
-	0x58, 0x62, 0xae, 0x44, 0x90, 0xe0, 0xe4, 0xc0, 0x28, 0xb6, 0x6a, 0x74, 0x0a, 0x2f, 0xbd, 0x6c,
-	0x21, 0xb3, 0x18, 0x95, 0xfe, 0x72, 0xe7, 0x8b, 0xac, 0xb9, 0xdb, 0x04, 0x86, 0x66, 0x7a, 0xde,
-	0xbc, 0x76, 0xd0, 0x1c, 0x69, 0x04, 0xaf, 0x76, 0x5b, 0x6a, 0xc3, 0x97, 0x30, 0x16, 0xad, 0x2f,
-	0xa6, 0x75, 0xc4, 0x77, 0xaa, 0x7b, 0xc6, 0xac, 0x0e, 0x63, 0x29, 0x3c, 0x77, 0x37, 0x82, 0x8f,
-	0xce, 0xe3, 0x12, 0xc6, 0xc6, 0x53, 0x75, 0xef, 0x6f, 0x22, 0x49, 0x84, 0x21, 0x3a, 0xe0, 0x3b,
-	0xd5, 0x3e, 0x73, 0x98, 0xfd, 0x1d, 0xc0, 0xa8, 0xea, 0xa8, 0x02, 0x45, 0xbe, 0x82, 0x75, 0xa3,
-	0xc9, 0x39, 0xdb, 0x4f, 0x29, 0x7b, 0xf0, 0xfc, 0xf6, 0xdb, 0x2e, 0x40, 0xfb, 0x09, 0xbf, 0xc3,
-	0xd1, 0xcd, 0x4a, 0x63, 0x4e, 0xde, 0x77, 0x61, 0x3b, 0x32, 0xd5, 0x87, 0x74, 0x09, 0xc7, 0x2e,
-	0xae, 0x64, 0x8e, 0x4f, 0xc9, 0x3a, 0xfb, 0x33, 0x80, 0x61, 0x3d, 0x71, 0xc2, 0x61, 0x58, 0x2f,
-	0x17, 0xa1, 0x5d, 0x9d, 0xed, 0xcd, 0xb3, 0xdf, 0x3d, 0xca, 0xfe, 0xe0, 0xf5, 0x16, 0x70, 0xb4,
-	0xf0, 0x5c, 0x6f, 0x4e, 0xde, 0x74, 0xa1, 0xb7, 0x9b, 0xdd, 0x8b, 0x6d, 0xf6, 0x1b, 0x88, 0xc9,
-	0xd2, 0x5c, 0xa8, 0x30, 0x17, 0xa9, 0xc8, 0x7c, 0x2d, 0x73, 0x12, 0xc3, 0xb8, 0x1d, 0x4d, 0xf2,
-	0xa1, 0x8b, 0xac, 0x33, 0xf1, 0xf6, 0xc7, 0x3e, 0xd0, 0x8d, 0xbc, 0xcb, 0x7e, 0x5c, 0xc7, 0x42,
-	0xdf, 0x15, 0x01, 0x0b, 0x65, 0xea, 0xa0, 0x54, 0xa1, 0x9f, 0xf9, 0x91, 0xef, 0xac, 0x83, 0x58,
-	0x3a, 0xfb, 0x3f, 0xc0, 0xe0, 0xd8, 0x2c, 0xe9, 0xa7, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x3c,
-	0x51, 0xb5, 0xb6, 0x1d, 0x05, 0x00, 0x00,
+	// 646 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x55, 0x51, 0x6f, 0xd3, 0x30,
+	0x10, 0x56, 0xb2, 0x75, 0x6d, 0x6f, 0xa3, 0x93, 0x3c, 0x31, 0x95, 0x30, 0xb6, 0x61, 0xa4, 0x6d,
+	0xa0, 0x29, 0x51, 0xcb, 0x2b, 0x48, 0xac, 0x54, 0x63, 0x95, 0xca, 0x1e, 0x4c, 0x9f, 0x26, 0xa1,
+	0x29, 0x4d, 0xdc, 0xce, 0x5a, 0x12, 0x97, 0xd8, 0xe9, 0x13, 0x12, 0x3f, 0x88, 0xff, 0x08, 0xa8,
+	0xae, 0xd3, 0x2e, 0xad, 0xb7, 0x15, 0xc1, 0x5b, 0x7d, 0xbd, 0xfb, 0xee, 0xf3, 0xe7, 0xfb, 0x2e,
+	0x80, 0xc3, 0x41, 0x26, 0xa8, 0xd7, 0x8f, 0x78, 0x70, 0x1b, 0x53, 0xe9, 0x7b, 0xe3, 0xc6, 0xfc,
+	0xe0, 0x8e, 0x52, 0x2e, 0x39, 0x42, 0x2a, 0xc7, 0x9d, 0x87, 0xc7, 0x0d, 0xe7, 0x60, 0xc8, 0xf9,
+	0x30, 0xa2, 0x9e, 0xca, 0xe8, 0x67, 0x03, 0x4f, 0xb2, 0x98, 0x0a, 0xe9, 0xc7, 0xa3, 0x69, 0x11,
+	0xbe, 0x00, 0x74, 0xce, 0xd3, 0x5b, 0x42, 0x05, 0x8f, 0xc6, 0x94, 0xd0, 0x6f, 0x19, 0x15, 0x12,
+	0x35, 0xa1, 0xa4, 0x60, 0xea, 0xd6, 0xa1, 0x75, 0xb2, 0xd9, 0xdc, 0x73, 0x97, 0xa1, 0xdd, 0xd6,
+	0xe4, 0x40, 0xe8, 0x80, 0x4c, 0x53, 0xf1, 0x57, 0xd8, 0x29, 0x20, 0x89, 0x11, 0x4f, 0x04, 0x45,
+	0xe7, 0xb0, 0x3d, 0xe0, 0xe9, 0x2d, 0x0d, 0xf3, 0x7c, 0x51, 0xb7, 0x0e, 0xd7, 0x1e, 0x05, 0x5d,
+	0x2c, 0xc2, 0x1f, 0xa0, 0x92, 0x1f, 0x90, 0x03, 0x15, 0x55, 0x75, 0x99, 0xc5, 0x8a, 0xe1, 0x3a,
+	0x99, 0x9d, 0x51, 0x1d, 0xca, 0xea, 0x77, 0xa7, 0x5d, 0xb7, 0x0f, 0xad, 0x93, 0x2a, 0xc9, 0x8f,
+	0x78, 0x0b, 0xa0, 0xdb, 0x69, 0xe9, 0x2b, 0xe2, 0x53, 0xa8, 0x5d, 0x66, 0x71, 0x8f, 0x77, 0xda,
+	0xf9, 0xa5, 0x1f, 0x40, 0xc5, 0xef, 0x61, 0xb3, 0xc7, 0xe2, 0x99, 0x3e, 0x2e, 0xac, 0x4f, 0x84,
+	0xd4, 0xf2, 0x38, 0xee, 0x54, 0x65, 0x37, 0x57, 0xd9, 0xed, 0xe5, 0x2a, 0x13, 0x95, 0x87, 0x03,
+	0xd8, 0x21, 0x34, 0xf2, 0x25, 0x1b, 0xd3, 0x7f, 0x80, 0x41, 0x7b, 0x50, 0x65, 0x49, 0x10, 0x65,
+	0x82, 0x8d, 0xa9, 0xba, 0x5d, 0x85, 0xcc, 0x03, 0x58, 0xc0, 0x13, 0xad, 0x90, 0x96, 0xbe, 0x06,
+	0x36, 0x0b, 0x15, 0x78, 0x95, 0xd8, 0x2c, 0x9c, 0xb5, 0xb3, 0x57, 0x6c, 0x87, 0x61, 0x8b, 0xa5,
+	0x29, 0x1d, 0xd3, 0x54, 0xb0, 0x7e, 0x44, 0xeb, 0x6b, 0xaa, 0x63, 0x21, 0x86, 0x63, 0xd8, 0x6e,
+	0x4d, 0xf5, 0xbd, 0xb7, 0xed, 0x11, 0xd4, 0x94, 0x8e, 0x13, 0xf8, 0xcf, 0x2c, 0x8a, 0x98, 0x22,
+	0xb0, 0x46, 0x16, 0xa2, 0x2b, 0xb5, 0x6b, 0xc0, 0xd3, 0x4e, 0xd2, 0xe5, 0xc9, 0x90, 0x0a, 0xf9,
+	0xf1, 0xc6, 0x67, 0x49, 0x2e, 0xe5, 0x9d, 0x67, 0xb7, 0x8a, 0xcf, 0x1e, 0xc2, 0xee, 0x62, 0x89,
+	0x26, 0x7a, 0x04, 0x35, 0x56, 0xf8, 0x47, 0x95, 0x56, 0xc8, 0x42, 0x74, 0x89, 0x98, 0x6d, 0x20,
+	0xf6, 0x0e, 0x5e, 0x7c, 0xa2, 0x72, 0x2a, 0x85, 0x91, 0xe0, 0x73, 0xa8, 0x2a, 0x46, 0xd7, 0x89,
+	0x61, 0xbc, 0xbe, 0xc3, 0xfe, 0x7d, 0xd5, 0x9a, 0xeb, 0x33, 0x3d, 0x9c, 0xd7, 0x33, 0x69, 0xf5,
+	0x05, 0xc3, 0x22, 0xb2, 0xbd, 0x60, 0x87, 0x15, 0x44, 0x6d, 0xfe, 0xb6, 0xa0, 0x32, 0x79, 0x86,
+	0x89, 0x19, 0xd0, 0x05, 0xd8, 0x67, 0x12, 0x1d, 0x98, 0xcc, 0x79, 0x67, 0x74, 0x9d, 0x97, 0x0f,
+	0xb8, 0x57, 0x53, 0xfe, 0x02, 0xa5, 0xb3, 0x81, 0xa4, 0x29, 0x3a, 0x36, 0xe5, 0x1a, 0xfc, 0xb0,
+	0x0a, 0x68, 0x0f, 0x36, 0x5a, 0x74, 0xc0, 0x53, 0xfa, 0x3f, 0x51, 0x9b, 0x3f, 0x2d, 0x28, 0xeb,
+	0x31, 0x46, 0x04, 0xca, 0x7a, 0x31, 0x20, 0x6c, 0xaa, 0x2c, 0x6e, 0x0d, 0xe7, 0xd5, 0xbd, 0xe8,
+	0x77, 0x2c, 0xd1, 0x85, 0x52, 0xb7, 0xd3, 0xea, 0xb4, 0xd1, 0xbe, 0x29, 0x7b, 0xbe, 0x95, 0x56,
+	0x42, 0x6b, 0x06, 0x50, 0x9a, 0x6c, 0x5a, 0x81, 0xae, 0xa0, 0xac, 0xd7, 0x2d, 0x3a, 0x32, 0x15,
+	0x2e, 0x6f, 0x76, 0xe7, 0xf8, 0xd1, 0x3c, 0xdd, 0xe4, 0x97, 0x05, 0x48, 0x8d, 0x60, 0x9b, 0x89,
+	0x20, 0x65, 0x31, 0x4b, 0x7c, 0xc9, 0x53, 0x34, 0x84, 0x5a, 0x71, 0x42, 0xd1, 0x6b, 0x13, 0xa2,
+	0xd1, 0x03, 0xce, 0x9b, 0x55, 0x52, 0xb5, 0x64, 0x3f, 0x60, 0xd7, 0x6c, 0x09, 0xd4, 0x30, 0xa1,
+	0x3c, 0x68, 0x3e, 0xa7, 0xf9, 0x37, 0x25, 0x53, 0x02, 0x2d, 0xf7, 0xea, 0x74, 0xc8, 0xe4, 0x4d,
+	0xd6, 0x77, 0x03, 0x1e, 0x7b, 0x94, 0x8b, 0xc0, 0x4f, 0xfc, 0xd0, 0xf7, 0x46, 0xfd, 0x21, 0xf7,
+	0x96, 0x3f, 0xc7, 0xfd, 0x0d, 0xb5, 0x47, 0xdf, 0xfe, 0x09, 0x00, 0x00, 0xff, 0xff, 0x72, 0xe1,
+	0xb0, 0x0b, 0xab, 0x07, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -690,11 +924,84 @@ var _BlockID_serviceDesc = grpc.ServiceDesc{
 	Metadata: "dfuse/blockmeta/v1/blockmeta.proto",
 }
 
+// ForksClient is the client API for Forks service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type ForksClient interface {
+	Resolve(ctx context.Context, in *ForkResolveRequest, opts ...grpc.CallOption) (*ForkResolveResponse, error)
+}
+
+type forksClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewForksClient(cc *grpc.ClientConn) ForksClient {
+	return &forksClient{cc}
+}
+
+func (c *forksClient) Resolve(ctx context.Context, in *ForkResolveRequest, opts ...grpc.CallOption) (*ForkResolveResponse, error) {
+	out := new(ForkResolveResponse)
+	err := c.cc.Invoke(ctx, "/dfuse.blockmeta.v1.Forks/Resolve", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ForksServer is the server API for Forks service.
+type ForksServer interface {
+	Resolve(context.Context, *ForkResolveRequest) (*ForkResolveResponse, error)
+}
+
+// UnimplementedForksServer can be embedded to have forward compatible implementations.
+type UnimplementedForksServer struct {
+}
+
+func (*UnimplementedForksServer) Resolve(ctx context.Context, req *ForkResolveRequest) (*ForkResolveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Resolve not implemented")
+}
+
+func RegisterForksServer(s *grpc.Server, srv ForksServer) {
+	s.RegisterService(&_Forks_serviceDesc, srv)
+}
+
+func _Forks_Resolve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForkResolveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ForksServer).Resolve(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dfuse.blockmeta.v1.Forks/Resolve",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ForksServer).Resolve(ctx, req.(*ForkResolveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Forks_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "dfuse.blockmeta.v1.Forks",
+	HandlerType: (*ForksServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Resolve",
+			Handler:    _Forks_Resolve_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "dfuse/blockmeta/v1/blockmeta.proto",
+}
+
 // ChainDiscriminatorClient is the client API for ChainDiscriminator service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ChainDiscriminatorClient interface {
 	InLongestChain(ctx context.Context, in *InLongestChainRequest, opts ...grpc.CallOption) (*InLongestChainResponse, error)
+	GetBlockInLongestChain(ctx context.Context, in *GetBlockInLongestChainRequest, opts ...grpc.CallOption) (*GetBlockInLongestChainResponse, error)
 }
 
 type chainDiscriminatorClient struct {
@@ -714,9 +1021,19 @@ func (c *chainDiscriminatorClient) InLongestChain(ctx context.Context, in *InLon
 	return out, nil
 }
 
+func (c *chainDiscriminatorClient) GetBlockInLongestChain(ctx context.Context, in *GetBlockInLongestChainRequest, opts ...grpc.CallOption) (*GetBlockInLongestChainResponse, error) {
+	out := new(GetBlockInLongestChainResponse)
+	err := c.cc.Invoke(ctx, "/dfuse.blockmeta.v1.ChainDiscriminator/GetBlockInLongestChain", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ChainDiscriminatorServer is the server API for ChainDiscriminator service.
 type ChainDiscriminatorServer interface {
 	InLongestChain(context.Context, *InLongestChainRequest) (*InLongestChainResponse, error)
+	GetBlockInLongestChain(context.Context, *GetBlockInLongestChainRequest) (*GetBlockInLongestChainResponse, error)
 }
 
 // UnimplementedChainDiscriminatorServer can be embedded to have forward compatible implementations.
@@ -725,6 +1042,9 @@ type UnimplementedChainDiscriminatorServer struct {
 
 func (*UnimplementedChainDiscriminatorServer) InLongestChain(ctx context.Context, req *InLongestChainRequest) (*InLongestChainResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InLongestChain not implemented")
+}
+func (*UnimplementedChainDiscriminatorServer) GetBlockInLongestChain(ctx context.Context, req *GetBlockInLongestChainRequest) (*GetBlockInLongestChainResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBlockInLongestChain not implemented")
 }
 
 func RegisterChainDiscriminatorServer(s *grpc.Server, srv ChainDiscriminatorServer) {
@@ -749,6 +1069,24 @@ func _ChainDiscriminator_InLongestChain_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ChainDiscriminator_GetBlockInLongestChain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBlockInLongestChainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChainDiscriminatorServer).GetBlockInLongestChain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dfuse.blockmeta.v1.ChainDiscriminator/GetBlockInLongestChain",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChainDiscriminatorServer).GetBlockInLongestChain(ctx, req.(*GetBlockInLongestChainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ChainDiscriminator_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "dfuse.blockmeta.v1.ChainDiscriminator",
 	HandlerType: (*ChainDiscriminatorServer)(nil),
@@ -756,6 +1094,10 @@ var _ChainDiscriminator_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "InLongestChain",
 			Handler:    _ChainDiscriminator_InLongestChain_Handler,
+		},
+		{
+			MethodName: "GetBlockInLongestChain",
+			Handler:    _ChainDiscriminator_GetBlockInLongestChain_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
