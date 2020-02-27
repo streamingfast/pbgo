@@ -1,2 +1,2 @@
-generate.sh - Thu Feb 27 12:13:57 EST 2020 - abourget
-service-definitions revision: ca9b19c2a1f9f7a88a0bae243c495d174b21cb39
+generate.sh - Thu Feb 27 14:40:04 EST 2020 - abourget
+service-definitions revision: 38847caf36de7a1fb19727f67ef1c07158c4a988
