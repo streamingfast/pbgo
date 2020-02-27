@@ -1,4 +1,4 @@
-module github.com/eoscanada/pbgo
+module github.com/dfuse-io/pbgo
 
 go 1.13
 
