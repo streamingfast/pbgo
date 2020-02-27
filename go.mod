@@ -8,5 +8,5 @@ require (
 	github.com/golang/protobuf v1.3.4
 	github.com/stretchr/testify v1.4.0
 	github.com/tidwall/gjson v1.5.0
-	google.golang.org/grpc v1.27.1
+	google.golang.org/grpc v1.26.0
 )
