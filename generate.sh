@@ -21,6 +21,7 @@ protoc -I$SERVICES dfuse/trxstatetracker/v1/trxstatetracker.proto --go_out=plugi
 protoc -I$SERVICES dfuse/bstream/v1/bstream.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/codecs/deos/deos.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/codecs/deth/deth.proto --go_out=plugins=grpc,paths=source_relative:.
+protoc -I$SERVICES dfuse/vms/geth/evm/v1/executor.proto --go_out=plugins=grpc,paths=source_relative:.
 
 echo "generate.sh - `date` - `whoami`" > last_generate.txt
 echo -n "service-definitions revision: " >> last_generate.txt
