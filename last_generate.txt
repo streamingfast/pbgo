@@ -1,2 +1,2 @@
-generate.sh - Sun Mar  8 19:16:52 EDT 2020 - julien
-service-definitions revision: 57d47ba005650a93b8f69d2d65804e748ada1abd
+generate.sh - Mon Mar  9 10:29:00 EDT 2020 - julien
+service-definitions revision: dd0734531c1c2eb02c77dc36430738de7a862409
