@@ -6,7 +6,7 @@ package dfuse_vms_geth_evm_v1
 import (
 	context "context"
 	fmt "fmt"
-	deth "github.com/dfuse-io/pbgo/dfuse/codecs/deth"
+	deth "github.com/eoscanada/bstream/pb/dfuse/codecs/deth"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
