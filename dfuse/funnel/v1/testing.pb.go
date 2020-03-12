@@ -16,7 +16,7 @@ func NewTestFunnelClient(elements []*deos.Block) *TestFunnelClient {
 	return &TestFunnelClient{elements: elements}
 }
 
-func (c *TestFunnelClient) StreamBlocks(ctx context.Context, in *FunnelRequest, opts ...grpc.CallOption) (Funnel_StreamBlocksClient, error) {
+func (c *TestFunnelClient) StreamBlocks(ctx context.Context, in *StreamBlockRequest, opts ...grpc.CallOption) (Funnel_StreamBlocksClient, error) {
 	return &TestStreamBlocksClient{elements: c.elements}, nil
 }
 
@@ -34,12 +34,5 @@ func (c *TestStreamBlocksClient) Recv() (*deos.Block, error) {
 		return nil, io.EOF
 	}
 
-	switch out := c.elements[c.idx].(type) {
-	case *deos.Block:
-		return out, nil
-	case error:
-		return nil, out
-	default:
-		panic("unsupported typed")
-	}
+	return c.elements[c.idx], nil
 }
