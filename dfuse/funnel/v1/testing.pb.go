@@ -9,10 +9,10 @@ import (
 )
 
 type TestFunnelClient struct {
-	elements []interface{}
+	elements []*deos.Block{}
 }
 
-func NewTestFunnelClient(elements []interface{}) *TestFunnelClient {
+func NewTestFunnelClient(elements []*deos.Block{}) *TestFunnelClient {
 	return &TestFunnelClient{elements: elements}
 }
 
@@ -21,7 +21,7 @@ func (c *TestFunnelClient) StreamBlocks(ctx context.Context, in *FunnelRequest, 
 }
 
 type TestStreamBlocksClient struct {
-	elements []interface{}
+	elements []*deos.Block{}
 	idx      int
 
 	grpc.ClientStream
