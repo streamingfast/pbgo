@@ -1,2 +1,2 @@
-generate.sh - Wed Mar 11 16:10:19 EDT 2020 - cbillett
-service-definitions revision: 5217b657012cd09a57da1e38e8e97004ac7e4019
+generate.sh - Wed Mar 11 23:49:44 EDT 2020 - fproulx
+service-definitions revision: 1b30ae6da50f445169fe6ce34f77bd5790196080

@@ -6,7 +6,7 @@ package funnel
 import (
 	context "context"
 	fmt "fmt"
-	deos "github.com/eoscanada/bstream/pb/dfuse/codecs/deos"
+	deos "github.com/dfuse-io/pbgo/dfuse/codecs/deos"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -68,7 +68,9 @@ func init() {
 	proto.RegisterType((*StreamBlockRequest)(nil), "dfuse.search.v1.StreamBlockRequest")
 }
 
-func init() { proto.RegisterFile("dfuse/funnel/v1/funnel.proto", fileDescriptor_d3f872ed66cead6b) }
+func init() {
+	proto.RegisterFile("dfuse/funnel/v1/funnel.proto", fileDescriptor_d3f872ed66cead6b)
+}
 
 var fileDescriptor_d3f872ed66cead6b = []byte{
 	// 170 bytes of a gzipped FileDescriptorProto
@@ -87,11 +89,11 @@ var fileDescriptor_d3f872ed66cead6b = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // FunnelClient is the client API for Funnel service.
 //
@@ -101,10 +103,10 @@ type FunnelClient interface {
 }
 
 type funnelClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewFunnelClient(cc *grpc.ClientConn) FunnelClient {
+func NewFunnelClient(cc grpc.ClientConnInterface) FunnelClient {
 	return &funnelClient{cc}
 }
 

@@ -6,7 +6,7 @@ package dfuse_vms_geth_evm_v1
 import (
 	context "context"
 	fmt "fmt"
-	deth "github.com/eoscanada/bstream/pb/dfuse/codecs/deth"
+	deth "github.com/dfuse-io/pbgo/dfuse/codecs/deth"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -237,11 +237,11 @@ var fileDescriptor_1aeb2f1c14ae0168 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // ExecutorClient is the client API for Executor service.
 //
@@ -252,10 +252,10 @@ type ExecutorClient interface {
 }
 
 type executorClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewExecutorClient(cc *grpc.ClientConn) ExecutorClient {
+func NewExecutorClient(cc grpc.ClientConnInterface) ExecutorClient {
 	return &executorClient{cc}
 }
 
