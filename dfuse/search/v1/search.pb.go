@@ -907,9 +907,7 @@ func init() {
 	proto.RegisterType((*ETHBlockTrxPayload)(nil), "dfuse.search.v1.ETHBlockTrxPayload")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/search/v1/search.proto", fileDescriptor_5a664997e27fcf00)
-}
+func init() { proto.RegisterFile("dfuse/search/v1/search.proto", fileDescriptor_5a664997e27fcf00) }
 
 var fileDescriptor_5a664997e27fcf00 = []byte{
 	// 1133 bytes of a gzipped FileDescriptorProto
@@ -988,11 +986,11 @@ var fileDescriptor_5a664997e27fcf00 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
 // BackendClient is the client API for Backend service.
 //
@@ -1002,10 +1000,10 @@ type BackendClient interface {
 }
 
 type backendClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewBackendClient(cc grpc.ClientConnInterface) BackendClient {
+func NewBackendClient(cc *grpc.ClientConn) BackendClient {
 	return &backendClient{cc}
 }
 
@@ -1101,10 +1099,10 @@ type RouterClient interface {
 }
 
 type routerClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewRouterClient(cc grpc.ClientConnInterface) RouterClient {
+func NewRouterClient(cc *grpc.ClientConn) RouterClient {
 	return &routerClient{cc}
 }
 
@@ -1200,10 +1198,10 @@ type ForkResolverClient interface {
 }
 
 type forkResolverClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewForkResolverClient(cc grpc.ClientConnInterface) ForkResolverClient {
+func NewForkResolverClient(cc *grpc.ClientConn) ForkResolverClient {
 	return &forkResolverClient{cc}
 }
 

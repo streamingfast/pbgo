@@ -124,9 +124,7 @@ func init() {
 	proto.RegisterType((*Response)(nil), "dfuse.merger.v1.Response")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/merger/v1/merger.proto", fileDescriptor_0f1327e68c6db98d)
-}
+func init() { proto.RegisterFile("dfuse/merger/v1/merger.proto", fileDescriptor_0f1327e68c6db98d) }
 
 var fileDescriptor_0f1327e68c6db98d = []byte{
 	// 249 bytes of a gzipped FileDescriptorProto
@@ -150,11 +148,11 @@ var fileDescriptor_0f1327e68c6db98d = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
 // MergerClient is the client API for Merger service.
 //
@@ -164,10 +162,10 @@ type MergerClient interface {
 }
 
 type mergerClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewMergerClient(cc grpc.ClientConnInterface) MergerClient {
+func NewMergerClient(cc *grpc.ClientConn) MergerClient {
 	return &mergerClient{cc}
 }
 

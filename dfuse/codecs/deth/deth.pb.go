@@ -1972,9 +1972,7 @@ func init() {
 	proto.RegisterType((*GasEvent)(nil), "dfuse.codecs.deth.GasEvent")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/codecs/deth/deth.proto", fileDescriptor_3f10a8911eca0e2c)
-}
+func init() { proto.RegisterFile("dfuse/codecs/deth/deth.proto", fileDescriptor_3f10a8911eca0e2c) }
 
 var fileDescriptor_3f10a8911eca0e2c = []byte{
 	// 2491 bytes of a gzipped FileDescriptorProto

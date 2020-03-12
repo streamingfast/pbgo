@@ -5514,9 +5514,7 @@ func init() {
 	proto.RegisterType((*AccountCreationRef)(nil), "dfuse.codecs.deos.AccountCreationRef")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/codecs/deos/deos.proto", fileDescriptor_b451c4b9b8745b11)
-}
+func init() { proto.RegisterFile("dfuse/codecs/deos/deos.proto", fileDescriptor_b451c4b9b8745b11) }
 
 var fileDescriptor_b451c4b9b8745b11 = []byte{
 	// 5862 bytes of a gzipped FileDescriptorProto

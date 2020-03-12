@@ -613,9 +613,7 @@ func init() {
 	proto.RegisterType((*GetBlockInLongestChainResponse)(nil), "dfuse.blockmeta.v1.GetBlockInLongestChainResponse")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/blockmeta/v1/blockmeta.proto", fileDescriptor_05a582e363a28944)
-}
+func init() { proto.RegisterFile("dfuse/blockmeta/v1/blockmeta.proto", fileDescriptor_05a582e363a28944) }
 
 var fileDescriptor_05a582e363a28944 = []byte{
 	// 645 bytes of a gzipped FileDescriptorProto
@@ -664,11 +662,11 @@ var fileDescriptor_05a582e363a28944 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
 // TimeToIDClient is the client API for TimeToID service.
 //
@@ -680,10 +678,10 @@ type TimeToIDClient interface {
 }
 
 type timeToIDClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewTimeToIDClient(cc grpc.ClientConnInterface) TimeToIDClient {
+func NewTimeToIDClient(cc *grpc.ClientConn) TimeToIDClient {
 	return &timeToIDClient{cc}
 }
 
@@ -825,10 +823,10 @@ type BlockIDClient interface {
 }
 
 type blockIDClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewBlockIDClient(cc grpc.ClientConnInterface) BlockIDClient {
+func NewBlockIDClient(cc *grpc.ClientConn) BlockIDClient {
 	return &blockIDClient{cc}
 }
 
@@ -934,10 +932,10 @@ type ForksClient interface {
 }
 
 type forksClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewForksClient(cc grpc.ClientConnInterface) ForksClient {
+func NewForksClient(cc *grpc.ClientConn) ForksClient {
 	return &forksClient{cc}
 }
 
@@ -1007,10 +1005,10 @@ type ChainDiscriminatorClient interface {
 }
 
 type chainDiscriminatorClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewChainDiscriminatorClient(cc grpc.ClientConnInterface) ChainDiscriminatorClient {
+func NewChainDiscriminatorClient(cc *grpc.ClientConn) ChainDiscriminatorClient {
 	return &chainDiscriminatorClient{cc}
 }
 

@@ -364,9 +364,7 @@ func init() {
 	proto.RegisterType((*TransactionCursor)(nil), "dfuse.graphql.v1.TransactionCursor")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/graphql/v1/graphql.proto", fileDescriptor_0d3632bb23d33cb5)
-}
+func init() { proto.RegisterFile("dfuse/graphql/v1/graphql.proto", fileDescriptor_0d3632bb23d33cb5) }
 
 var fileDescriptor_0d3632bb23d33cb5 = []byte{
 	// 471 bytes of a gzipped FileDescriptorProto
@@ -404,11 +402,11 @@ var fileDescriptor_0d3632bb23d33cb5 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
 // GraphQLClient is the client API for GraphQL service.
 //
@@ -418,10 +416,10 @@ type GraphQLClient interface {
 }
 
 type graphQLClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewGraphQLClient(cc grpc.ClientConnInterface) GraphQLClient {
+func NewGraphQLClient(cc *grpc.ClientConn) GraphQLClient {
 	return &graphQLClient{cc}
 }
 

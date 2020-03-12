@@ -1119,9 +1119,7 @@ func init() {
 	proto.RegisterType((*AccountBalanceCursor)(nil), "dfuse.tokenmeta.v1.AccountBalanceCursor")
 }
 
-func init() {
-	proto.RegisterFile("dfuse/tokenmeta/v1/tokenmeta.proto", fileDescriptor_372c422cfad7bf09)
-}
+func init() { proto.RegisterFile("dfuse/tokenmeta/v1/tokenmeta.proto", fileDescriptor_372c422cfad7bf09) }
 
 var fileDescriptor_372c422cfad7bf09 = []byte{
 	// 1150 bytes of a gzipped FileDescriptorProto
@@ -1201,11 +1199,11 @@ var fileDescriptor_372c422cfad7bf09 = []byte{
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConnInterface
+var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion6
+const _ = grpc.SupportPackageIsVersion4
 
 // EOSClient is the client API for EOS service.
 //
@@ -1217,10 +1215,10 @@ type EOSClient interface {
 }
 
 type eOSClient struct {
-	cc grpc.ClientConnInterface
+	cc *grpc.ClientConn
 }
 
-func NewEOSClient(cc grpc.ClientConnInterface) EOSClient {
+func NewEOSClient(cc *grpc.ClientConn) EOSClient {
 	return &eOSClient{cc}
 }
 
