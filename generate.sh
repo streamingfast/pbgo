@@ -12,6 +12,7 @@ SERVICES=${1:-../service-definitions}
 protoc -I$SERVICES grpc/health/v1/health.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/funnel/v1/funnel.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/abicodec/eosio/v1/abicodec.proto --go_out=plugins=grpc,paths=source_relative:.
+protoc -I$SERVICES dfuse/abicodec/eth/v1/abicodec.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/blockmeta/v1/blockmeta.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/graphql/v1/graphql.proto --go_out=plugins=grpc,paths=source_relative:.
 protoc -I$SERVICES dfuse/headinfo/v1/headinfo.proto --go_out=plugins=grpc,paths=source_relative:.
