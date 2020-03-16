@@ -1,2 +1,2 @@
-generate.sh - Thu Mar 12 22:11:24 EDT 2020 - maoueh
-service-definitions revision: 0a9df67696e1dc5b356e76321e3f060cba88192f
+generate.sh - Mon Mar 16 10:37:25 EDT 2020 - cbillett
+service-definitions revision: 5059eacb884f5d1661166fbe5e2d72c163a51053
