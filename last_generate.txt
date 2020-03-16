@@ -1,2 +1,2 @@
-generate.sh - Mon Mar 16 10:37:25 EDT 2020 - cbillett
-service-definitions revision: 5059eacb884f5d1661166fbe5e2d72c163a51053
+generate.sh - Mon Mar 16 10:40:42 EDT 2020 - cbillett
+service-definitions revision: dab220ac8316c5ff531eb8bac369be3f469724de
