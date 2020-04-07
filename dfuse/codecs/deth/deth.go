@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/eoscanada/jsonpb"
+	"github.com/dfuse-io/jsonpb"
 	"github.com/gogo/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 )

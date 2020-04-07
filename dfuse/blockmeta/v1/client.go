@@ -18,7 +18,7 @@ import (
 	context "context"
 	"time"
 
-	"github.com/eoscanada/dgrpc"
+	"github.com/dfuse-io/dgrpc"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"
 	grpc "google.golang.org/grpc"
