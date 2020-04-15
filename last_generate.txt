@@ -1,2 +1,2 @@
-generate.sh - Wed Apr 15 01:30:14 EDT 2020 - maoueh
-service-definitions revision: 730912690bf2a37bc50fa8cef0dff56701f11b69
+generate.sh - Wed Apr 15 17:52:42 EDT 2020 - maoueh
+service-definitions revision: 77bf70666c4334a37e5977ac7bba988b934d58dd
