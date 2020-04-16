@@ -13,24 +13,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-current_dir="`pwd`"
-trap "cd \"$current_dir\"" EXIT
-pushd "$ROOT" &> /dev/null
+# Protobuf definitions
+PROTO=${PROTO:-"$ROOT/../service-definitions"}
 
-# Service definitions
-SERVICES=${1:-../service-definitions}
+function main() {
+  current_dir="`pwd`"
+  trap "cd \"$current_dir\"" EXIT
+  pushd "$ROOT/pb" &> /dev/null
 
-protoc -I$SERVICES grpc/health/v1/health.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/blockmeta/v1/blockmeta.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/bstream/v1/bstream.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/graphql/v1/graphql.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/headinfo/v1/headinfo.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/merger/v1/merger.proto --go_out=plugins=grpc,paths=source_relative:.
-protoc -I$SERVICES dfuse/search/v1/search.proto --go_out=plugins=grpc,paths=source_relative:.
+  generate "dfuse/blockmeta/v1/blockmeta.proto"
+  generate "dfuse/bstream/v1/bstream.proto"
+  generate "dfuse/graphql/v1/graphql.proto"
+  generate "dfuse/headinfo/v1/headinfo.proto"
+  generate "dfuse/merger/v1/merger.proto"
+  generate "dfuse/search/v1/search.proto"
+  generate "grpc/health/v1/health.proto"
 
-echo "generate.sh - `date` - `whoami`" > last_generate.txt
-echo -n "service-definitions revision: " >> last_generate.txt
-GIT_DIR=$SERVICES/.git  git rev-parse HEAD >> last_generate.txt
+  echo "generate.sh - `date` - `whoami`" > $ROOT/last_generate.txt
+  echo "dfuse-io/proto revision: `GIT_DIR=$PROTO/.git git rev-parse HEAD`" >> $ROOT/last_generate.txt
+}
+
+function generate() {
+    protoc -I$PROTO $1 --go_out=plugins=grpc,paths=source_relative:.
+}
+
+main "$@"
