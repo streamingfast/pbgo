@@ -89,3 +89,21 @@ func TimestampProto(t time.Time) *tspb.Timestamp {
 	out, _ := ptypes.TimestampProto(t)
 	return out
 }
+
+// StartBlockResolver will try to return same blocknum as target, with
+// irreversible ID set to that block itself. If the requested block is
+// NOT considered irreversible, it returns an error and you will have to
+// use another method.
+func StartBlockResolver(cli BlockIDClient) func(ctx context.Context, targetBlockNum uint64) (uint64, string, error) {
+	return func(ctx context.Context, targetBlockNum uint64) (uint64, string, error) {
+		idResp, err := cli.NumToID(ctx, &NumToIDRequest{BlockNum: targetBlockNum})
+		if err != nil {
+			return 0, "", err
+		}
+
+		if idResp.Irreversible {
+			return targetBlockNum, idResp.Id, nil
+		}
+		return 0, "", err
+	}
+}
