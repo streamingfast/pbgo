@@ -16,6 +16,7 @@ package pbblockmeta
 
 import (
 	context "context"
+	fmt "fmt"
 	"time"
 
 	"github.com/dfuse-io/dgrpc"
@@ -107,6 +108,6 @@ func StartBlockResolver(cli BlockIDClient) func(ctx context.Context, targetBlock
 		if idResp.Irreversible {
 			return targetBlockNum, idResp.Id, nil
 		}
-		return 0, "", err
+		return 0, "", fmt.Errorf("could not find irreversible id for targetBlockNum:%d", targetBlockNum)
 	}
 }
