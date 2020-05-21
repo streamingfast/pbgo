@@ -96,7 +96,10 @@ func TimestampProto(t time.Time) *tspb.Timestamp {
 // use another method.
 func StartBlockResolver(cli BlockIDClient) func(ctx context.Context, targetBlockNum uint64) (uint64, string, error) {
 	return func(ctx context.Context, targetBlockNum uint64) (uint64, string, error) {
-		idResp, err := cli.NumToID(ctx, &NumToIDRequest{BlockNum: targetBlockNum})
+		if targetBlockNum <= 2 {
+			return targetBlockNum, "", nil
+		}
+		idResp, err := cli.NumToID(ctx, &NumToIDRequest{BlockNum: targetBlockNum}, grpc.WaitForReady(false))
 		if err != nil {
 			return 0, "", err
 		}
