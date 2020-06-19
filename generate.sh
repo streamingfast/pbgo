@@ -25,6 +25,7 @@ function main() {
 
   generate "dfuse/blockmeta/v1/blockmeta.proto"
   generate "dfuse/bstream/v1/bstream.proto"
+  generate "dfuse/fluxdb/v1/fluxdb.proto"
   generate "dfuse/graphql/v1/graphql.proto"
   generate "dfuse/headinfo/v1/headinfo.proto"
   generate "dfuse/merger/v1/merger.proto"
