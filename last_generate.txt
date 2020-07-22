@@ -1,2 +1,2 @@
-generate.sh - Wed Jul 22 14:24:30 EDT 2020 - cbillett
-dfuse-io/proto revision: 94f29652e1debae07aa68b9db69817b62d23a16c
+generate.sh - Wed Jul 22 14:28:16 EDT 2020 - cbillett
+dfuse-io/proto revision: 0a86c3b29bee438f7f5f2311450f3ffd817a18bd
