@@ -1,2 +1,2 @@
-generate.sh - Fri Jul 24 16:21:48 EDT 2020 - maoueh
+generate.sh - Tue Jul 28 13:09:37 EDT 2020 - maoueh
 dfuse-io/proto revision: 80727da05d9f448e7f81680a22a3604e4aaf8182
