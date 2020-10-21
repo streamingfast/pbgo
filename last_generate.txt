@@ -1,2 +1,2 @@
-generate.sh - Tue 13 Oct 2020 01:14:26 PM EDT - abourget
-dfuse-io/proto revision: 90c5e498eb04d901382d671825e34795a8c7b70b
+generate.sh - Wed Oct 21 14:31:12 EDT 2020 - maoueh
+dfuse-io/proto revision: b3868c926fd5d5276c898b63cd2a7f226a9218c0
