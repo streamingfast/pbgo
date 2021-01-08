@@ -1,2 +1,2 @@
-generate.sh - Fri Jan  8 11:53:04 EST 2021 - maoueh
-dfuse-io/proto revision: 23443268b0fb7d53bb5d7a39da953c3ff27dfc92
+generate.sh - Fri Jan  8 15:34:50 EST 2021 - maoueh
+dfuse-io/proto revision: 698ff2c1ddeb1f3849765818343e9cc60f609f41
