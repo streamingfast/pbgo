@@ -1,2 +1,2 @@
-generate.sh - Fri Jan  8 16:50:23 EST 2021 - maoueh
+generate.sh - Mon 25 Jan 2021 01:16:05 PM EST - stepd
 dfuse-io/proto revision: d32565f58136d4bf33aa6025d4aa3fd5b304ea0d
