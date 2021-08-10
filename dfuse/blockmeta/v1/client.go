@@ -19,7 +19,7 @@ import (
 	fmt "fmt"
 	"time"
 
-	"github.com/dfuse-io/dgrpc"
+	"github.com/streamingfast/dgrpc"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"
 	grpc "google.golang.org/grpc"
