@@ -52,7 +52,7 @@ github.com/dfuse-io/logging v0.0.0-20200406213449-45fc25dc6a8d/go.mod h1:80YyilH
 github.com/dfuse-io/logging v0.0.0-20200407175011-14021b7a79af/go.mod h1:80YyilHcgoqrnoIeeJKgcsOw6Y/0/bQzDO/XzNIrIdM=
 github.com/dfuse-io/logging v0.0.0-20210109005628-b97a57253f70 h1:CuJS05R9jmNlUK8GOxrEELPbfXm0EuGh/30LjkjN5vo=
 github.com/dfuse-io/logging v0.0.0-20210109005628-b97a57253f70/go.mod h1:EoK/8RFbMEteaCaz89uessDTnCWjbbcr+DXcBh4el5o=
-github.com/dfuse-io/pbgo v0.0.6-0.20210108215028-712d6889e94a/go.mod h1:dbo6DfMDndlPjbJSTZ7Vw/25oKfKg3zzuia+RseeMkU=
+github.com/streamingfast/pbgo v0.0.6-0.20210108215028-712d6889e94a/go.mod h1:dbo6DfMDndlPjbJSTZ7Vw/25oKfKg3zzuia+RseeMkU=
 github.com/eapache/go-resiliency v1.1.0/go.mod h1:kFI+JgMyC7bLPUVY133qvEBtVayf5mFgVsvEsIPBvNs=
 github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21/go.mod h1:+020luEh2TKB4/GOp8oxxtq0Daoen/Cii55CzbTV6DU=
 github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=

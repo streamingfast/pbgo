@@ -1,7 +1,5 @@
-dfuse Service Definitions Library for Go
-----------------------------------------
-
-[![reference](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)](https://pkg.go.dev/github.com/dfuse-io/pbgo)
+# StreamingFast Service Definitions Library for Go
+[![reference](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)](https://pkg.go.dev/github.com/streamingfast/pbgo)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This has generated code from the `service-definitions` repository for Go.
@@ -18,12 +16,11 @@ definitions, standard-library and thin thin general purpose helpers.
 **Issues and PR in this repo related strictly to the pbgo library.**
 
 Report any protocol-specific issues in their
-[respective repositories](https://github.com/dfuse-io/dfuse#protocols)
+[respective repositories](https://github.com/streamingfast/streamingfast#protocols)
 
 **Please first refer to the general
-[dfuse contribution guide](https://github.com/dfuse-io/dfuse/blob/master/CONTRIBUTING.md)**,
+[StreamingFast contribution guide](https://github.com/streamingfast/streamingfast/blob/master/CONTRIBUTING.md)**,
 if you wish to contribute to this code base.
-
 
 ## License
 

@@ -1,4 +1,4 @@
-module github.com/dfuse-io/pbgo
+module github.com/streamingfast/pbgo
 
 go 1.13
 
