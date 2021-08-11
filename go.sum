@@ -172,6 +172,7 @@ github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPx
 github.com/streamingfast/derr v0.0.0-20210810022442-32249850a4fb/go.mod h1:zL7vriSdKmvbNntPVlXzPDizifaTwUv6+1TGp6KdO88=
 github.com/streamingfast/dgrpc v0.0.0-20200406214416-6271093e544c h1:ebrUj1rR2g1ErpCMjQUmTON3T3MNi22wf/vYJ/zSkXI=
 github.com/streamingfast/dgrpc v0.0.0-20200406214416-6271093e544c/go.mod h1:n7pQV0mGBMBgJChGKp5gfRLkP2jSCkT+to7fPxKvQPA=
+github.com/streamingfast/dgrpc v0.0.0-20200406214416-6271093e544c/go.mod h1:n7pQV0mGBMBgJChGKp5gfRLkP2jSCkT+to7fPxKvQPA=
 github.com/streamingfast/dgrpc v0.0.0-20210810185305-905172f728e8 h1:K4cFAso8nu8Q7kJSccEB4YWJr+v1k0u/0yOmRC/KRms=
 github.com/streamingfast/dgrpc v0.0.0-20210810185305-905172f728e8/go.mod h1:jBj49IB1Oa9ILev6cx9CfXl7Td83Mdyn2gJOA9F+vZA=
 github.com/streamingfast/dtracing v0.0.0-20210810035915-473055fed32a h1:f2z0hl0EzhIkzErTPGf6ntF1kdOUZTWAz/DajsTgu9s=
