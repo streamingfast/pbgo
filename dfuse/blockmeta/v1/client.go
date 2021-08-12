@@ -19,10 +19,13 @@ import (
 	fmt "fmt"
 	"time"
 
-	"github.com/streamingfast/dgrpc"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"
+	"go.opencensus.io/plugin/ocgrpc"
 	grpc "google.golang.org/grpc"
+	"google.golang.org/grpc/balancer/roundrobin"
+	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/keepalive"
 )
 
 type Client struct {
@@ -30,7 +33,7 @@ type Client struct {
 }
 
 func NewClient(addr string) (*Client, error) {
-	conn, err := dgrpc.NewInternalClient(addr)
+	conn, err := newInternalClient(addr)
 	if err != nil {
 		return nil, err
 	}
@@ -110,4 +113,32 @@ func StartBlockResolver(cli BlockIDClient) func(ctx context.Context, targetBlock
 		}
 		return 0, "", fmt.Errorf("could not find irreversible id for targetBlockNum:%d", targetBlockNum)
 	}
+}
+
+var balancerDialOption = grpc.WithBalancerName(roundrobin.Name)
+var insecureDialOption = grpc.WithInsecure()
+var tracingDialOption = grpc.WithStatsHandler(&ocgrpc.ClientHandler{})
+var tlsClientDialOption = grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, ""))
+var maxCallRecvMsgSize = 1024 * 1024 * 1024
+var defaultCallOptions = []grpc.CallOption{
+	grpc.MaxCallRecvMsgSize(maxCallRecvMsgSize),
+	grpc.WaitForReady(true),
+}
+
+var keepaliveDialOption = grpc.WithKeepaliveParams(keepalive.ClientParameters{
+	Time:                30 * time.Second, // send pings every (x seconds) there is no activity
+	Timeout:             10 * time.Second, // wait that amount of time for ping ack before considering the connection dead
+	PermitWithoutStream: true,             // send pings even without active streams
+})
+
+func newInternalClient(remoteAddr string) (*grpc.ClientConn, error) {
+	conn, err := grpc.Dial(
+		remoteAddr,
+		tracingDialOption,
+		balancerDialOption,
+		insecureDialOption,
+		keepaliveDialOption,
+		grpc.WithDefaultCallOptions(defaultCallOptions...),
+	)
+	return conn, err
 }
