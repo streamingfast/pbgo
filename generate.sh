@@ -25,15 +25,15 @@ function main() {
   trap "cd \"$current_dir\"" EXIT
   pushd "$ROOT/pb" &> /dev/null
 
-  generate "dfuse/blockmeta/v1/blockmeta.proto"
-  generate "dfuse/bstream/v1/bstream.proto"
-  generate "dfuse/fluxdb/v1/fluxdb.proto"
-  generate "dfuse/graphql/v1/graphql.proto"
-  generate "dfuse/headinfo/v1/headinfo.proto"
-  generate "dfuse/merger/v1/merger.proto"
-  generate "dfuse/search/v1/search.proto"
-  generate "grpc/health/v1/health.proto"
+  generate "sf/blockmeta/v1/blockmeta.proto"
+  generate "sf/bstream/v1/bstream.proto"
+  generate "sf/fluxdb/v1/fluxdb.proto"
+  generate "sf/graphql/v1/graphql.proto"
+  generate "sf/headinfo/v1/headinfo.proto"
+  generate "sf/merger/v1/merger.proto"
+  generate "sf/search/v1/search.proto"
   generate "sf/firehose/v1/firehose.proto"
+  generate "grpc/health/v1/health.proto"
 
   echo "generate.sh - `date` - `whoami`" > $ROOT/last_generate.txt
   echo "streamingfast/proto revision: `GIT_DIR=$PROTO/.git git rev-parse HEAD`" >> $ROOT/last_generate.txt
