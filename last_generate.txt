@@ -1,2 +1,2 @@
-generate.sh - Thu  9 Dec 2021 12:41:38 EST - julien
-streamingfast/proto revision: a63a401e156bc2b2487146adf2ce53945a9b2e91
+generate.sh - Thu  9 Dec 2021 12:43:35 EST - julien
+streamingfast/proto revision: 8b3b15a7a689e565af6d0be3b87d5fa5468bdc9e
