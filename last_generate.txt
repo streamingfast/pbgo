@@ -1,2 +1,2 @@
-generate.sh - Thu Oct 28 18:49:30 CDT 2021 - sosedoff
-streamingfast/proto revision: b326e4ff6c241806a26622cea77f3646805e2653
+generate.sh - Thu  9 Dec 2021 10:06:19 EST - julien
+streamingfast/proto revision: a63a401e156bc2b2487146adf2ce53945a9b2e91
