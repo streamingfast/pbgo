@@ -1,10 +1,9 @@
 module github.com/streamingfast/pbgo
 
-go 1.13
+go 1.15
 
 require (
-	github.com/golang/protobuf v1.5.0
-	github.com/streamingfast/dgrpc v0.0.0-20210811180351-8646818518b2
-	google.golang.org/grpc v1.29.1
+	golang.org/x/text v0.3.2 // indirect
+	google.golang.org/grpc v1.44.0
 	google.golang.org/protobuf v1.27.1
 )

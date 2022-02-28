@@ -19,25 +19,18 @@ import (
 	fmt "fmt"
 	"time"
 
-	"github.com/streamingfast/dgrpc"
-	"github.com/golang/protobuf/ptypes"
-	tspb "github.com/golang/protobuf/ptypes/timestamp"
 	grpc "google.golang.org/grpc"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 type Client struct {
 	conn *grpc.ClientConn
 }
 
-func NewClient(addr string) (*Client, error) {
-	conn, err := dgrpc.NewInternalClient(addr)
-	if err != nil {
-		return nil, err
-	}
-
+func NewClient(conn *grpc.ClientConn) *Client {
 	return &Client{
 		conn: conn,
-	}, nil
+	}
 }
 
 func (b *Client) timeToIDClient() TimeToIDClient {
@@ -81,14 +74,12 @@ func (b *Client) BlockAfter(ctx context.Context, t time.Time, inclusive bool) (*
 }
 
 // TODO: This will eventually move to our own libs.. we'll need that everywhere.
-func Timestamp(ts *tspb.Timestamp) time.Time {
-	t, _ := ptypes.Timestamp(ts)
-	return t
+func Timestamp(ts *timestamppb.Timestamp) time.Time {
+	return ts.AsTime()
 }
 
-func TimestampProto(t time.Time) *tspb.Timestamp {
-	out, _ := ptypes.TimestampProto(t)
-	return out
+func TimestampProto(t time.Time) *timestamppb.Timestamp {
+	return timestamppb.New(t)
 }
 
 // StartBlockResolver will try to return same blocknum as target, with
