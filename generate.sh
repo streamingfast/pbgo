@@ -33,6 +33,7 @@ function main() {
   generate "sf/merger/v1/merger.proto"
   generate "sf/search/v1/search.proto"
   generate "sf/firehose/v1/firehose.proto"
+  generate "sf/firehose/v2/firehose.proto"
 
   echo "generate.sh - `date` - `whoami`" > $ROOT/last_generate.txt
   echo "streamingfast/proto revision: `GIT_DIR=$PROTO/.git git rev-parse HEAD`" >> $ROOT/last_generate.txt
