@@ -192,6 +192,8 @@ type BlockRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Number of blocks we want to get in burst upon connection, on a best effort basis.
+	// -1 means "LIB"
+	// any other "-X" value means "start at block X"
 	Burst int64 `protobuf:"varint,1,opt,name=burst,proto3" json:"burst,omitempty"`
 	// Type of blocks we're after here, is it 'ethereum' data, 'eos', etc.. The server can fail early
 	// if he doesn't match the data he serves (services mismatch, etc..)
