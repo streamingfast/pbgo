@@ -34,7 +34,7 @@ func NewBlockStreamClient(cc grpc.ClientConnInterface) BlockStreamClient {
 }
 
 func (c *blockStreamClient) Blocks(ctx context.Context, in *BlockRequest, opts ...grpc.CallOption) (BlockStream_BlocksClient, error) {
-	stream, err := c.cc.NewStream(ctx, &BlockStream_ServiceDesc.Streams[0], "/sf.bstream.v1.BlockStream/Blocks", opts...)
+	stream, err := c.cc.NewStream(ctx, &BlockStream_ServiceDesc.Streams[0], "/dfuse.bstream.v1.BlockStream/Blocks", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func (x *blockStreamBlocksServer) Send(m *Block) error {
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var BlockStream_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sf.bstream.v1.BlockStream",
+	ServiceName: "dfuse.bstream.v1.BlockStream",
 	HandlerType: (*BlockStreamServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{

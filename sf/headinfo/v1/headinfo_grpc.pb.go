@@ -35,7 +35,7 @@ func NewHeadInfoClient(cc grpc.ClientConnInterface) HeadInfoClient {
 
 func (c *headInfoClient) GetHeadInfo(ctx context.Context, in *HeadInfoRequest, opts ...grpc.CallOption) (*HeadInfoResponse, error) {
 	out := new(HeadInfoResponse)
-	err := c.cc.Invoke(ctx, "/sf.headinfo.v1.HeadInfo/GetHeadInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/dfuse.headinfo.v1.HeadInfo/GetHeadInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +78,7 @@ func _HeadInfo_GetHeadInfo_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sf.headinfo.v1.HeadInfo/GetHeadInfo",
+		FullMethod: "/dfuse.headinfo.v1.HeadInfo/GetHeadInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HeadInfoServer).GetHeadInfo(ctx, req.(*HeadInfoRequest))
@@ -90,7 +90,7 @@ func _HeadInfo_GetHeadInfo_Handler(srv interface{}, ctx context.Context, dec fun
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var HeadInfo_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sf.headinfo.v1.HeadInfo",
+	ServiceName: "dfuse.headinfo.v1.HeadInfo",
 	HandlerType: (*HeadInfoServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -118,7 +118,7 @@ func NewStreamingHeadInfoClient(cc grpc.ClientConnInterface) StreamingHeadInfoCl
 }
 
 func (c *streamingHeadInfoClient) StreamHeadInfo(ctx context.Context, in *HeadInfoRequest, opts ...grpc.CallOption) (StreamingHeadInfo_StreamHeadInfoClient, error) {
-	stream, err := c.cc.NewStream(ctx, &StreamingHeadInfo_ServiceDesc.Streams[0], "/sf.headinfo.v1.StreamingHeadInfo/StreamHeadInfo", opts...)
+	stream, err := c.cc.NewStream(ctx, &StreamingHeadInfo_ServiceDesc.Streams[0], "/dfuse.headinfo.v1.StreamingHeadInfo/StreamHeadInfo", opts...)
 	if err != nil {
 		return nil, err
 	}
