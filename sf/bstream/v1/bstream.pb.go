@@ -349,9 +349,6 @@ type Block struct {
 	PayloadVersion int32                  `protobuf:"varint,7,opt,name=payload_version,json=payloadVersion,proto3" json:"payload_version,omitempty"`
 	PayloadBuffer  []byte                 `protobuf:"bytes,8,opt,name=payload_buffer,json=payloadBuffer,proto3" json:"payload_buffer,omitempty"`
 	HeadNum        uint64                 `protobuf:"varint,9,opt,name=head_num,json=headNum,proto3" json:"head_num,omitempty"` // when set, indicates the current server head block
-
-
-
 	PreviousNum    uint64                 `protobuf:"varint,10,opt,name=previous_num,json=previousNum,proto3" json:"previous_num,omitempty"`
 	Payload        *anypb.Any             `protobuf:"bytes,11,opt,name=payload,proto3" json:"payload,omitempty"`
 }
