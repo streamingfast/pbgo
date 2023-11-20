@@ -26,7 +26,6 @@ function main() {
   pushd "$ROOT/pb" &> /dev/null
 
   generate "sf/blockmeta/v1/blockmeta.proto"
-  generate "sf/bstream/v1/bstream.proto"
   generate "sf/fluxdb/v1/fluxdb.proto"
   generate "sf/graphql/v1/graphql.proto"
   generate "sf/headinfo/v1/headinfo.proto"
