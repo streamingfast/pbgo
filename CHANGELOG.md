@@ -3,9 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## 2023-12-08
+
+## Removed
+
+* Removed pbbstream -> it now lives inside github.com/streamingfast/bstream
+
+## 2022-02-28
 
 ### Changed
+
 
 - **BREAKING CHANGE** Function `github.com/streamingfast/pbog/sf/blockmeta/v1/pbblockmeta#NewClient` now accepts a `conn *grpc.Conn` directly instead of an `addr string` value. This has been made to remove the cycle we had on `dgrpc` which was depending on `pbgo` library. It also does not return an `error` anymore. To get back the old behavior, change:
 
