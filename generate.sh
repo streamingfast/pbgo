@@ -63,7 +63,7 @@ function checks() {
   # version waits forever. So we pipe some wrong input to make it exit fast. This, in the new version
   # which supports `--version` correctly print the version anyway and discard the standard input
   # so it's good with both version.
-  result=`printf "" | protoc-gen-go --version 2>&1 | grep -Eo "v1\.(27)\.[0-9]+"`
+  result=`printf "" | protoc-gen-go --version 2>&1 | grep -Eo "v[1-9]\.(2[7-9]|[3-9][0-9])\.[0-9]+"`
   if [[ "$result" == "" ]]; then
     echo "Your version of 'protoc-gen-go' (at `which protoc-gen-go`) is not recent enough."
     echo ""
@@ -79,7 +79,7 @@ function checks() {
     exit 1
   fi
 
-  result=`printf "" | protoc-gen-go-grpc --version 2>&1 | grep -Eo "1\.2\.[0-9]+"`
+  result=`printf "" | protoc-gen-go-grpc --version 2>&1 | grep -Eo "1\.[2-9]\.[0-9]+"`
   if [[ "$result" == "" ]]; then
     echo "Your version of 'protoc-gen-go-grpc' (at `which protoc-gen-go-grpc`) is not recent enough."
     echo ""
