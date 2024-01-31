@@ -134,8 +134,7 @@ var Stream_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	Fetch_Block_FullMethodName     = "/sf.firehose.v2.Fetch/Block"
-	Fetch_BlockMeta_FullMethodName = "/sf.firehose.v2.Fetch/BlockMeta"
+	Fetch_Block_FullMethodName = "/sf.firehose.v2.Fetch/Block"
 )
 
 // FetchClient is the client API for Fetch service.
@@ -143,7 +142,6 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FetchClient interface {
 	Block(ctx context.Context, in *SingleBlockRequest, opts ...grpc.CallOption) (*SingleBlockResponse, error)
-	BlockMeta(ctx context.Context, in *BlockMetaRequest, opts ...grpc.CallOption) (*BlockMetaResponse, error)
 }
 
 type fetchClient struct {
@@ -163,21 +161,11 @@ func (c *fetchClient) Block(ctx context.Context, in *SingleBlockRequest, opts ..
 	return out, nil
 }
 
-func (c *fetchClient) BlockMeta(ctx context.Context, in *BlockMetaRequest, opts ...grpc.CallOption) (*BlockMetaResponse, error) {
-	out := new(BlockMetaResponse)
-	err := c.cc.Invoke(ctx, Fetch_BlockMeta_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // FetchServer is the server API for Fetch service.
 // All implementations should embed UnimplementedFetchServer
 // for forward compatibility
 type FetchServer interface {
 	Block(context.Context, *SingleBlockRequest) (*SingleBlockResponse, error)
-	BlockMeta(context.Context, *BlockMetaRequest) (*BlockMetaResponse, error)
 }
 
 // UnimplementedFetchServer should be embedded to have forward compatible implementations.
@@ -186,9 +174,6 @@ type UnimplementedFetchServer struct {
 
 func (UnimplementedFetchServer) Block(context.Context, *SingleBlockRequest) (*SingleBlockResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Block not implemented")
-}
-func (UnimplementedFetchServer) BlockMeta(context.Context, *BlockMetaRequest) (*BlockMetaResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method BlockMeta not implemented")
 }
 
 // UnsafeFetchServer may be embedded to opt out of forward compatibility for this service.
@@ -220,24 +205,6 @@ func _Fetch_Block_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Fetch_BlockMeta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BlockMetaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FetchServer).BlockMeta(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Fetch_BlockMeta_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FetchServer).BlockMeta(ctx, req.(*BlockMetaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Fetch_ServiceDesc is the grpc.ServiceDesc for Fetch service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -248,10 +215,6 @@ var Fetch_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Block",
 			Handler:    _Fetch_Block_Handler,
-		},
-		{
-			MethodName: "BlockMeta",
-			Handler:    _Fetch_BlockMeta_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
