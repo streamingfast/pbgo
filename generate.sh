@@ -17,9 +17,7 @@ ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Protobuf definitions
 PROTO=${PROTO:-"$ROOT/../proto"}
-BSTREAM_PROTO="$ROOT/../bstream/proto"
-
-echo $BSTREAM_PROTO
+PROTO_BSTREAM=${PROTO_BSTREAM:-"$ROOT/../bstream/proto"}
 
 function main() {
   checks
@@ -51,7 +49,7 @@ function generate() {
     fi
 
     for file in "$@"; do
-      protoc -I$PROTO -I$BSTREAM_PROTO \
+      protoc -I$PROTO -I$PROTO_BSTREAM \
         --go_out=. --go_opt=paths=source_relative \
         --go-grpc_out=. --go-grpc_opt=paths=source_relative,require_unimplemented_servers=false \
          $base$file
