@@ -635,7 +635,7 @@ type InfoResponse struct {
 	// This informs the client on how to decode the `block_id` field inside the "Clock" message
 	// as well as the `first_streamable_block_id` above.
 	BlockIdEncoding InfoResponse_BlockIdEncoding `protobuf:"varint,5,opt,name=block_id_encoding,json=blockIdEncoding,proto3,enum=sf.firehose.v2.InfoResponse_BlockIdEncoding" json:"block_id_encoding,omitempty"`
-	// features describes the blocks. Popular values for EVM chains include `light`, `extended` or `hybrid`.
+	// features describes the blocks. Popular values for EVM chains include `base`, `extended` or `hybrid`.
 	BlockFeatures []string `protobuf:"bytes,10,rep,name=block_features,json=blockFeatures,proto3" json:"block_features,omitempty"`
 }
 
