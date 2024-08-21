@@ -1,2 +1,2 @@
-generate.sh - Tue Apr 30 15:05:08 EDT 2024 - maoueh
+generate.sh - Tue 20 Aug 2024 16:29:25 EDT - stepd
 streamingfast/proto revision: 1e2daf215276d81c025619f1d81be71250417ec3
