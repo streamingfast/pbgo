@@ -1,2 +1,2 @@
-generate.sh - Fri 23 Aug 2024 09:43:29 EDT - stepd
+generate.sh - Tue Jan 14 13:22:44 EST 2025 - stepd
 streamingfast/proto revision: 17ecce85bc8a6464a995933e68b172ba63646753

@@ -52,6 +52,7 @@ function generate() {
       protoc -I$PROTO -I$PROTO_BSTREAM \
         --go_out=. --go_opt=paths=source_relative \
         --go-grpc_out=. --go-grpc_opt=paths=source_relative,require_unimplemented_servers=false \
+        --connect-go_out=. --connect-go_opt=paths=source_relative \
          $base$file
     done
 }
