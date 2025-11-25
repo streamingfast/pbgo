@@ -1,2 +1,2 @@
-generate.sh - Mon Jan 20 11:45:48 EST 2025 - stepd
-streamingfast/proto revision: 17ecce85bc8a6464a995933e68b172ba63646753
+generate.sh - Tue Nov 25 15:46:22 EST 2025 - stepd
+streamingfast/proto revision: 727b66617f7a4b9692aa98b0d68e0c8c8eec5ad8
