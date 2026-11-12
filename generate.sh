@@ -24,8 +24,9 @@ function main() {
 
   current_dir="`pwd`"
   trap "cd \"$current_dir\"" EXIT
-  pushd "$ROOT/pb" &> /dev/null
+  pushd "$ROOT" &> /dev/null
 
+  generate "firehose/options.proto"
   generate "sf/blockmeta/v1/blockmeta.proto"
   generate "sf/fluxdb/v1/fluxdb.proto"
   generate "sf/graphql/v1/graphql.proto"
@@ -36,7 +37,7 @@ function main() {
   generate "sf/firehose/v2/firehose.proto"
 
   echo "generate.sh - `date` - `whoami`" > $ROOT/last_generate.txt
-  echo "streamingfast/proto revision: `GIT_DIR=$PROTO/.git git rev-parse HEAD`" >> $ROOT/last_generate.txt
+  echo "streamingfast/proto revision: `git -C $PROTO rev-parse HEAD`" >> $ROOT/last_generate.txt
 }
 
 # usage:
