@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+* Added `github.com/streamingfast/pbgo/firehose` (package `pbfirehose`) generated from `firehose/options.proto`, exposing the `E_Block`, `E_Transactions` and `E_NonDeterministic` protobuf options used to annotate a chain's Firehose `Block`.
+
+### Fixed
+
+* Fixed `generate.sh` to output at repository root instead of non-existent `pb` directory and to resolve proto revision from a git worktree.
+
 ## 2023-12-08
 
 ## Removed
